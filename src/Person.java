@@ -4,6 +4,8 @@ public class Person {
     private String name;
     private double balance;
 
+    public Person() {}
+
     public Person(int id, String name, double balance) {
         this.id = id;
         this.name = name;
