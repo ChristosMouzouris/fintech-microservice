@@ -1,14 +1,14 @@
 import java.io.IOException;
 import java.util.List;
 
-public class CachedPersonRepository implements PersonRepository{
+public class CachedPersonRepository implements PersonRepository {
 
     private final PersonRepository delegate;
-    private final LRUCache<Integer, Person> cache;
+    private final CacheStrategy<Integer, Person> cache;
 
-    public CachedPersonRepository(PersonRepository delegate, int cacheSize) {
+    public CachedPersonRepository(PersonRepository delegate, CacheStrategy<Integer, Person> cache) {
         this.delegate = delegate;
-        this.cache = new LRUCache<>(cacheSize);
+        this.cache = cache;
     }
 
     @Override
